@@ -34,7 +34,9 @@
 ├── requirements.txt              # 环境依赖列表
 └── README.md                     # 项目说明文档
 
-```markdown
+
+
+
 ## 📈 建模设计逻辑
 我们提出的综合评分公式如下：
 
