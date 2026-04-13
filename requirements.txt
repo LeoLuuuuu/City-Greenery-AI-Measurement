@@ -1,0 +1,9 @@
+torch
+transformers
+accelerate
+scipy
+safetensors
+segments-ai
+matplotlib
+Pillow
+git+https://github.com/facebookresearch/segment-anything.git
