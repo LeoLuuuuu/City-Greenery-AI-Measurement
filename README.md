@@ -8,7 +8,7 @@
 ## 🛠️ 技术栈
 - 语言: Python 3.8+
 - 深度学习框架: PyTorch
-- 核心模型: GroundingDINO, Segment Anything (SAM), Zensvi (Mapillary)
+- 核心模型: GroundingDINO, Segment Anything (SAM), Monodepth2, Zensvi (Mapillary)
 - 数据处理: OpenCV, Pandas, NumPy
 
 ## ✨ 核心功能
@@ -34,36 +34,44 @@
 ├── requirements.txt              # 环境依赖列表
 └── README.md                     # 项目说明文档
 
+```markdown
 ## 📈 建模设计逻辑
-我们提出的综合评分公式如下：$$SGQS = \alpha \cdot Zscore(\ln(S_{total})) + \beta \cdot Zscore(GVI_{area})$$
-$\ln(S_{total})$: 代表物理遮荫潜能。取对数以平滑极端值，反映真实的生态覆盖。
-$GVI_{area}$: 代表行人视觉体验，反映“看起来绿不绿”。
-方案推荐: 采用 $\alpha=0.7, \beta=0.3$。该方案极大突出了深度学习矫正遥感数据后的物理价值，纠偏了传统评价中对物理遮荫能力的低估。
+我们提出的综合评分公式如下：
+
+$$SGQS = \alpha \cdot Zscore(\ln(S_{total})) + \beta \cdot Zscore(GVI_{area})$$
+
+- $\ln(S_{total})$: 代表物理遮荫潜能。取对数以平滑极端值，反映真实的生态覆盖。
+- $GVI_{area}$: 代表行人视觉体验，反映“看起来绿不绿”。
+- 方案推荐: 采用 $\alpha=0.7, \beta=0.3$。该方案极大突出了深度学习矫正遥感数据后的物理价值，纠偏了传统评价中对物理遮荫能力的低估。
 
 
 ## 🚀 快速上手
+
 ### 1.配置环境:
+
 ```bash
 pip install -r requirements.txt
 ```
-2.准备权重:
+### 2.准备权重:
+
 由于权重文件较大，请从官方渠道下载 groundingdino_swint_ogc.pth 和 sam_vit_h_4b8939.pth 放入models/目录。
-3.运行绿视率统计:
+
+### 3.运行绿视率统计:
 ```bash
 python core/semantic_segmentation.py
 python core/calculate_gvi.py
 ```
-4.运行单木参数提取:
+### 4.运行单木参数提取:
 ```bash
 python core/instance_segmentation.py
 ```
-5.进行综合建模分析（SGQS）
+### 5.进行综合建模分析（SGQS）
 ```bash
 python core/calculate_sgqs.py
 ```
 
 ##👥 团队与致谢
-指导老师: 邹晟源老师
-项目成员: 鲁东升，秦伟杰，冉从金，于佳玉，杨巧
-依托单位: 北京林业大学信息学院
+- 指导老师: 邹晟源老师
+- 项目成员: 鲁东升，秦伟杰，冉从金，于佳玉，杨巧
+- 依托单位: 北京林业大学信息学院
 
