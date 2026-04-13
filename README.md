@@ -33,9 +33,7 @@
 ├── models/         #存放模型 
 ├── requirements.txt              # 环境依赖列表
 └── README.md                     # 项目说明文档
-
-
-
+```
 
 ## 📈 建模设计逻辑
 我们提出的综合评分公式如下：
@@ -72,7 +70,7 @@ python core/instance_segmentation.py
 python core/calculate_sgqs.py
 ```
 
-##👥 团队与致谢
+## 👥 团队与致谢
 - 指导老师: 邹晟源老师
 - 项目成员: 鲁东升，秦伟杰，冉从金，于佳玉，杨巧
 - 依托单位: 北京林业大学信息学院
